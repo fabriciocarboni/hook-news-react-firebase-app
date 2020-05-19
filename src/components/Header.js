@@ -27,7 +27,7 @@ function Header() {
           <>
             <div className="divider">|</div>
             <NavLink to="/create" className="header-link">
-              submit
+              create a link
             </NavLink>
           </>
         )}
