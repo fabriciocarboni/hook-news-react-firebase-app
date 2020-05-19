@@ -19,9 +19,9 @@ function useFormValidation(initialState, validate, authenticate) {
 
   function handleChange(event) {
     event.persist();
-    setValues((previousValues) => ({
+    setValues(previousValues => ({
       ...previousValues,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     }));
   }
 
@@ -43,7 +43,7 @@ function useFormValidation(initialState, validate, authenticate) {
     handleChange,
     values,
     errors,
-    isSubmitting,
+    isSubmitting
   };
 }
 

@@ -2,11 +2,12 @@ import React from "react";
 import useFormValidation from "./useFormValidation";
 import validateLogin from "./validateLogin";
 import firebase from "../../firebase";
+import { Link } from "react-router-dom";
 
 const INITIAL_STATE = {
   name: "",
   email: "",
-  password: "",
+  password: ""
 };
 
 function Login(props) {
@@ -16,7 +17,7 @@ function Login(props) {
     handleChange,
     values,
     errors,
-    isSubmitting,
+    isSubmitting
   } = useFormValidation(INITIAL_STATE, validateLogin, authenticateUser);
   const [login, setLogin] = React.useState(true);
   const [firebaseError, setFirebaseError] = React.useState(null);
@@ -82,12 +83,15 @@ function Login(props) {
           <button
             type="button"
             className="pointer button"
-            onClick={() => setLogin((prevLogin) => !prevLogin)}
+            onClick={() => setLogin(prevLogin => !prevLogin)}
           >
             {login ? "need to create an account?" : "already have an account?"}
           </button>
         </div>
       </form>
+      <div className="forgot-password">
+        <Link to="/forgot">Forgot password?</Link>
+      </div>
     </div>
   );
 }
