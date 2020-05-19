@@ -12,7 +12,7 @@ function LinkItem({ link, index, showCount, history }) {
       history.push("/login");
     } else {
       const voteRef = firebase.db.collection("links").doc(link.id);
-      voteRef.get().then(doc => {
+      voteRef.get().then((doc) => {
         if (doc.exists) {
           const previousVotes = doc.data().votes;
           const vote = { votedBy: { id: user.uid, name: user.displayName } };
@@ -31,7 +31,7 @@ function LinkItem({ link, index, showCount, history }) {
       .then(() => {
         console.log(`Document with ID ${link.id} deleted`);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Error deleting document:", err);
       });
   }
@@ -53,7 +53,7 @@ function LinkItem({ link, index, showCount, history }) {
           </a>{" "}
           <span className="link">({getDomain(link.url)})</span>
         </div>
-        <div className="f6 lh-copy gray">
+        <div className="f6 lh-copy grey">
           {link.voteCount} votes by {link.postedBy.name}{" "}
           {distanceInWordsToNow(link.created)}
           {" | "}
