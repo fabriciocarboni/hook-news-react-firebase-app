@@ -16,6 +16,7 @@ function ForgotPassword() {
       console.error("Error sending email", err);
       setPasswordResetError(err.message);
       setIsPasswordReset(false);
+      setIsPasswordReset(null);
     }
   }
 
@@ -25,7 +26,7 @@ function ForgotPassword() {
         type="email"
         className="input"
         placeholder="Provide your account email"
-        onChange={event => setResetPasswordEmail(event.target.value)}
+        onChange={(event) => setResetPasswordEmail(event.target.value)}
       />
       <div>
         <button className="button" onClick={handleResetPassword}>
